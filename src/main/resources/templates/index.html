@@ -5,13 +5,25 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="keywords" content="ChatGPT,ChatGPT中文网,OpenAi,ai智能">
   <meta name="description" content="ChatGPT是一款基于自然语言生成（NLG）和认知技术（AI）的对话引擎，可用于涵盖从智能对话到富媒体技术（文本/语音/视频）的内容的各种用例的实现。 支持的平台：Facebook，Microsoft，Google，IOS 和 Android。 开发者可以使用它构建自动化、有趣、情境感知的聊天机器人，以实现灵活的交互式对话系统。">
+  <base href="ai/">
   <link rel="shortcut icon" th:href="@{/static/images/favicon.ico}" type="image/x-icon">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link th:href="@{/static/css/common.css}" rel="stylesheet">
   <link th:href="@{/static/css/wenda.css}" rel="stylesheet">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-TVWLLMN');</script>
+  <!-- End Google Tag Manager -->
   <title>ChatGPT中文网</title>
 </head>
 <body style="background-color:#343541">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TVWLLMN"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
   <div class="layout-wrap">
     <header class="layout-header">
       <div class="container" data-flex="main:justify cross:center">
@@ -77,12 +89,17 @@
   <script th:src="@{/static/js/toast.js}"></script>
   <script th:src="@{/static/js/openai.js}"></script>
   <script>
+    // // 长度限制
+    // const maxTokens = [[${@environment.getProperty('openai.max_tokens')}]];
+    // // 设置提示信息
+    // $("#promptText").html("ChatGPT是一个超强的Ai，它会创作、写论文、答辩、编程，绘画等<br/>\n" +
+    //         "由于接口是付费的，未填写APIKEY上下文Token的长度将限制为" + maxTokens + "，服务端不存储任何数据");
     // 百度统计Token获取
-    const bdTongJiToken = "[[${@environment.getProperty('baidu.tong_ji_token')}]]";
+    // const bdTongJiToken = "[[${@environment.getProperty('baidu.tong_ji_token')}]]";
     // 判断是否有添加百度统计的token
-    if(bdTongJiToken){
-      var _hmt=_hmt||[];(function(){var hm=document.createElement("script");hm.src="https://hm.baidu.com/hm.js?" + bdTongJiToken;var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s)})();
-    }
+    // if(bdTongJiToken){
+    //   var _hmt=_hmt||[];(function(){var hm=document.createElement("script");hm.src="https://hm.baidu.com/hm.js?" + bdTongJiToken;var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s)})();
+    // }
     // 提示信息
     const tips = "[[${@environment.getProperty('openai.tips')}]]";
     // 设置提示信息

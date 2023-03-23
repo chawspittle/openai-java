@@ -1,5 +1,7 @@
 server:
   port: 18080
+  servlet:
+    context-path: /ai
 
 spring:
   mvc:
@@ -21,7 +23,7 @@ openai:
   # 默认的AI模型，gpt-3.5-turbo or gpt-3.5-turbo-0301	，区别：https://platform.openai.com/docs/models/gpt-3-5
   model: gpt-3.5-turbo
   # 多个Key用,分割
-  keys: ${KEYS:}
+  keys: ${KEYS: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}
   # 综合问答API
   openai_api: https://api.openai.com/v1/chat/completions
   # 图片问答API

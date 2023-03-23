@@ -15,13 +15,15 @@
  */
 package com.ydyno.config;
 
-import cn.hutool.core.collection.ListUtil;
-import lombok.Data;
+import java.security.SecureRandom;
+import java.util.List;
+
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
-import java.util.List;
-import java.util.Random;
+
+import cn.hutool.core.collection.ListUtil;
+import lombok.Data;
 
 /**
  * @author Zheng Jie
@@ -85,7 +87,7 @@ public class OpenAiConfig {
             return keyList.get(0);
         }
         // 打乱顺序
-        Random random = new Random();
+        SecureRandom random = new SecureRandom();
         // 获取0~list.size()之间的随机数
         int index = random.nextInt(keyList.size());
         // 获取一个 key
