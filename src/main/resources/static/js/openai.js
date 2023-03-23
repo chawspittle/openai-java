@@ -4,10 +4,20 @@ const uuid = getUuid();
 let number = new Date().getSeconds();
 const heartbeatMsg = "this is the heartbeat message"
 
+console.log("contextPath: " + getContextPath());
+
 // WS连接地址
-const wsServer= (window.location.protocol+'//' + window.location.host + "/api/ws/" + uuid)
+const wsServer = (window.location.protocol + '//' + window.location.host + getContextPath() + "/api/ws/" + uuid)
     .replace("http", "ws")
     .replace("https", "wss");
+
+
+function getContextPath() {
+    var pathName = window.location.pathname;
+    var index = pathName.substring(1).indexOf("/");
+    var result = pathName.substring(0, index + 1);
+    return result;
+}
 
 //socket初始化
 let socket;
